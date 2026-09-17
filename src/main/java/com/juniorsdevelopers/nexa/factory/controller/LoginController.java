@@ -1,5 +1,6 @@
 package com.juniorsdevelopers.nexa.factory.controller;
 
+import com.juniorsdevelopers.nexa.factory.service.Service;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
@@ -35,9 +36,17 @@ public class LoginController {
     @FXML
     private Hyperlink enlaceRegistro;
 
+    private final Service service = new Service();
+
     @FXML
     public void initialize() {
-        comboRol.getItems().addAll(List.of("Administrador", "Supervisor", "Operario", "Almacén"));
+        comboRol.getItems().addAll(List.of(
+            "Administrador",
+            "Supervisor de Producción",
+            "Operario",
+            "Inspector de Calidad"
+        ));
+
         campoContrasenaVisible.setVisible(false);
         campoContrasenaVisible.setManaged(false);
         campoContrasenaVisible.textProperty().bindBidirectional(campoContrasena.textProperty());
@@ -46,8 +55,10 @@ public class LoginController {
     @FXML
     private void alternarVisibilidadContrasena(ActionEvent evento) {
         boolean mostrar = botonMostrarContrasena.isSelected();
+
         campoContrasenaVisible.setVisible(mostrar);
         campoContrasenaVisible.setManaged(mostrar);
+
         campoContrasena.setVisible(!mostrar);
         campoContrasena.setManaged(!mostrar);
     }
@@ -63,7 +74,22 @@ public class LoginController {
             return;
         }
 
-        System.out.println("Rol: " + rolSeleccionado + " Usuario: " + usuario);
+        boolean acceso = service.iniciarSesion(
+            usuario,
+            contrasena,
+            rolSeleccionado
+        );
+
+        if (acceso) {
+            System.out.println(
+                "Rol: " + rolSeleccionado +
+                " Usuario: " + usuario
+            );
+
+            mostrarAlerta("Inicio de sesión correcto.");
+        } else {
+            mostrarAlerta("Usuario, contraseña o rol incorrectos.");
+        }
     }
 
     @FXML
