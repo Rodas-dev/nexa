@@ -9,9 +9,9 @@ public class DataBaseConnection {
     public static Connection getDataBaseConnection() throws SQLException {
         if(connection == null || connection.isClosed()){
             connection = DriverManager.getConnection(
-                 Credentials.URL_DATA_BASE, 
-                 Credentials.USER_DB,
-                 Credentials.PASS_DB);
+                 Crendentials.URL_DATA_BASE, 
+                 Crendentials.USER_DB,
+                 Crendentials.PASS_DB);
         }
         return connection;
     }  

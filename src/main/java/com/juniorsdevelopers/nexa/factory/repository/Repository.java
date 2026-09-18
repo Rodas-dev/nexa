@@ -12,9 +12,8 @@ public class Repository {
         String query = "SELECT u.id_usuario FROM usuario u " +
                        "JOIN rol r ON u.id_rol = r.id_rol " +
                        "WHERE (u.correo = ? OR u.nombre_usuario = ?) " +
-                       "AND u.contraseña = ? " +
+                       "AND u.contrasena = ? " +
                        "AND r.nombre_rol = ?";
-
         try (Connection conn = DataBaseConnection.getDataBaseConnection();
              PreparedStatement stmt = conn.prepareStatement(query)) {
 

@@ -2,10 +2,10 @@
 /build/
 /dist/
 /nbproject/private
- 
+
 #clases autogeneradas
 *.class
 *.jar
- 
-Credentials.java
-**/Credentials.java
+
+Crendentials.java
+**/Crendentials.java
