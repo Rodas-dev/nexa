@@ -7,5 +7,5 @@
 *.class
 *.jar
 
-Crendentials.java
-**/Crendentials.java
+Credentials.java
+**/Credentials.java

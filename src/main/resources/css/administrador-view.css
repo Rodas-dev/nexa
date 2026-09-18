@@ -1,0 +1,174 @@
+.root {
+    -fx-background-color: #071a33;
+    -fx-font-family: "Segoe UI";
+}
+
+.sidebar {
+    -fx-background-color: #06172d;
+    -fx-border-color: #102b4a;
+    -fx-border-width: 0 1px 0 0;
+}
+
+.menu-container {
+    -fx-padding: 15px 10px;
+}
+
+.menu-button,
+.menu-button-active,
+.boton-cerrar-sesion {
+    -fx-background-color: #ffffff;
+    -fx-text-fill: #071a33;
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+    -fx-alignment: CENTER_LEFT;
+    -fx-background-radius: 7px;
+    -fx-border-radius: 7px;
+    -fx-border-color: #dce6f0;
+    -fx-border-width: 1px;
+    -fx-padding: 10px 14px;
+    -fx-cursor: hand;
+}
+
+.menu-button:hover,
+.menu-button-active:hover,
+.boton-cerrar-sesion:hover {
+    -fx-background-color: #f5faff;
+    -fx-border-color: #72b9ff;
+    -fx-effect: dropshadow(gaussian, rgba(80, 170, 255, 0.35), 8, 0.25, 0, 0);
+}
+
+.menu-button:pressed,
+.menu-button-active:pressed,
+.boton-cerrar-sesion:pressed {
+    -fx-background-color: #e7f3ff;
+}
+
+.menu-button-active {
+    -fx-background-color: #ffffff;
+    -fx-text-fill: #006dcc;
+    -fx-border-color: #55aaff;
+    -fx-effect: dropshadow(gaussian, rgba(80, 170, 255, 0.25), 7, 0.2, 0, 0);
+}
+
+.imagen-boton {
+    -fx-fit-width: 24px;
+    -fx-fit-height: 24px;
+}
+
+.user-box {
+    -fx-padding: 15px;
+}
+
+.user-box .separator {
+    -fx-background-color: #284565;
+}
+
+.user-circle {
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 50%;
+    -fx-border-color: #73baff;
+    -fx-border-radius: 50%;
+    -fx-border-width: 1px;
+}
+
+.user-icon {
+    -fx-text-fill: #071a33;
+    -fx-font-size: 20px;
+}
+
+.username {
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+}
+
+.user-role {
+    -fx-text-fill: #9db4cc;
+    -fx-font-size: 11px;
+}
+
+.content {
+    -fx-background-color: #071a33;
+}
+
+.boton-cerrar-sesion {
+    -fx-padding: 8px 14px;
+    -fx-font-size: 12px;
+}
+
+.imagen-cerrar-sesion {
+    -fx-fit-width: 22px;
+    -fx-fit-height: 22px;
+}
+
+.welcome-banner {
+    -fx-background-color: linear-gradient(
+        to right,
+        #0b294b,
+        #0d355e
+    );
+    -fx-background-radius: 10px;
+    -fx-border-color: #1d4c76;
+    -fx-border-radius: 10px;
+    -fx-border-width: 1px;
+    -fx-padding: 25px;
+    -fx-effect: dropshadow(
+        gaussian,
+        rgba(0, 0, 0, 0.35),
+        12,
+        0.2,
+        0,
+        3
+    );
+}
+
+.welcome-title {
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 23px;
+    -fx-font-weight: bold;
+}
+
+.welcome-description {
+    -fx-text-fill: #c5d8eb;
+    -fx-font-size: 13px;
+}
+
+.imagen-centro {
+    -fx-background-color: rgba(255, 255, 255, 0.03);
+    -fx-background-radius: 8px;
+}
+
+.imagen-principal {
+    -fx-fit-width: 370px;
+    -fx-fit-height: 95px;
+}
+
+.card {
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 9px;
+    -fx-border-color: #d8e3ed;
+    -fx-border-radius: 9px;
+    -fx-border-width: 1px;
+    -fx-padding: 18px;
+    -fx-effect: dropshadow(
+        gaussian,
+        rgba(0, 0, 0, 0.22),
+        10,
+        0.15,
+        0,
+        3
+    );
+}
+
+.card:hover {
+    -fx-background-color: #fafdff;
+    -fx-border-color: #72b9ff;
+    -fx-effect: dropshadow(
+        gaussian,
+        rgba(80, 170, 255, 0.3),
+        10,
+        0.2,
+        0,
+        2
+    );
+}
