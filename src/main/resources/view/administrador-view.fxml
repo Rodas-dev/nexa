@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane styleClass="root" stylesheets="@../css/administrador-view.css" xmlns="http://javafx.com/javafx/21.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.juniorsdevelopers.nexa.factory.controller.AdministradorController">
+<BorderPane fx:id="raiz" styleClass="root" stylesheets="@../css/administrador-view.css" xmlns="http://javafx.com/javafx/21.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.juniorsdevelopers.nexa.factory.controller.AdministradorController">
 
     <left>
         <VBox prefWidth="230.0" styleClass="sidebar">
@@ -50,7 +50,7 @@
                     </graphic>
                 </Button>
 
-                <Button maxWidth="Infinity" styleClass="menu-button" text="Materia Prima">
+                <Button fx:id="botonMateriaPrima" maxWidth="Infinity" onAction="#mostrarMateriaPrima" styleClass="menu-button" text="Materia Prima">
                     <graphic>
                         <ImageView fitHeight="24.0" fitWidth="24.0" preserveRatio="true" styleClass="imagen-boton">
                      <image>
