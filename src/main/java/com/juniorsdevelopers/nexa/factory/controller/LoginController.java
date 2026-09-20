@@ -1,5 +1,6 @@
 package com.juniorsdevelopers.nexa.factory.controller;
 
+import com.juniorsdevelopers.nexa.factory.model.Rol;
 import com.juniorsdevelopers.nexa.factory.service.Service;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -17,6 +18,7 @@ import javafx.scene.control.ToggleButton;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.net.URL;
 import java.util.List;
 
 public class LoginController {
@@ -44,86 +46,80 @@ public class LoginController {
 
     private final Service service = new Service();
 
-    @FXML
-    public void initialize() {
-        comboRol.getItems().addAll(List.of(
-            "Administrador",
-            "Supervisor de Producción",
-            "Operario",
-            "Inspector de Calidad"
-        ));
-
-        campoContrasenaVisible.setVisible(false);
-        campoContrasenaVisible.setManaged(false);
-        campoContrasenaVisible.textProperty().bindBidirectional(campoContrasena.textProperty());
-    }
-
+   @FXML
+public void initialize() {
+    comboRol.getItems().addAll(List.of("Administrador", "Supervisor", "Operario", "Almacén"));
+    campoContrasenaVisible.setVisible(false);
+    campoContrasenaVisible.setManaged(false);
+    campoContrasenaVisible.textProperty().bindBidirectional(campoContrasena.textProperty());
+}
+   
     @FXML
     private void alternarVisibilidadContrasena(ActionEvent evento) {
         boolean mostrar = botonMostrarContrasena.isSelected();
-
         campoContrasenaVisible.setVisible(mostrar);
         campoContrasenaVisible.setManaged(mostrar);
-
         campoContrasena.setVisible(!mostrar);
         campoContrasena.setManaged(!mostrar);
     }
 
     @FXML
-    private void iniciarSesion(ActionEvent evento) {
-        String rolSeleccionado = comboRol.getValue();
-        String usuario = campoUsuario.getText();
-        String contrasena = campoContrasena.getText();
+private void iniciarSesion(ActionEvent evento) {
+    String rolSeleccionado = comboRol.getValue();
+    String usuario = campoUsuario.getText();
+    String contrasena = campoContrasena.getText();
 
-        if (rolSeleccionado == null || usuario.isBlank() || contrasena.isBlank()) {
-            mostrarAlerta("Debes completar todos los campos antes de iniciar sesión.");
-            return;
-        }
-
-        boolean acceso = service.iniciarSesion(
-            usuario,
-            contrasena,
-            rolSeleccionado
-        );
-
-        if (acceso) {
-            if (rolSeleccionado.equals("Administrador")) {
-                try {
-                    FXMLLoader loader = new FXMLLoader(
-                        getClass().getResource("/view/administrador-view.fxml")
-                    );
-
-                    Parent vistaAdministrador = loader.load();
-
-                    Stage ventana = (Stage) ((Node) evento.getSource())
-                        .getScene()
-                        .getWindow();
-
-                    Scene escena = new Scene(vistaAdministrador);
-
-                    ventana.setScene(escena);
-                    ventana.setTitle("Nexa - Administrador");
-                    ventana.show();
-
-                } catch (IOException e) {
-                    e.printStackTrace();
-                    mostrarAlerta("No se pudo cargar la pantalla de administrador.");
-                }
-            } else {
-                mostrarAlerta(
-                    "Inicio de sesión correcto, pero esta vista todavía no está configurada para el rol: "
-                    + rolSeleccionado
-                );
-            }
-        } else {
-            mostrarAlerta("Usuario, contraseña o rol incorrectos.");
-        }
+    if (rolSeleccionado == null || usuario.isBlank() || contrasena.isBlank()) {
+        mostrarAlerta("Debes completar todos los campos antes de iniciar sesión.");
+        return;
     }
+
+    boolean credencialesValidas = service.iniciarSesion(usuario, contrasena, rolSeleccionado);
+
+    if (!credencialesValidas) {
+        mostrarAlerta("Usuario, contraseña o rol incorrectos.");
+        return;
+    }
+
+     navegarSegunRol(rolSeleccionado, evento);
+ } 
 
     @FXML
     private void irARegistro(ActionEvent evento) {
-        System.out.println("Ir a pantalla de registro");
+        try {
+            URL rutaVista = getClass().getResource("/view/registro-view.fxml");
+            Parent vista = FXMLLoader.load(rutaVista);
+            Node origen = (Node) evento.getSource();
+            Stage stage = (Stage) origen.getScene().getWindow();
+            stage.setScene(new Scene(vista));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
+    private void navegarSegunRol(String rol, ActionEvent evento) {
+    String ruta = "Administrador".equals(rol) ? "/view/administrador-view.fxml" : null;
+
+    if (ruta == null) {
+        mostrarAlerta("El panel para el rol " + rol + " aún no está disponible.");
+        return;
+    }
+
+    URL rutaVista = getClass().getResource(ruta);
+    if (rutaVista == null) {
+        mostrarAlerta("No se encontró " + ruta + " en el classpath.");
+        return;
+    }
+
+    try {
+        Parent vista = FXMLLoader.load(rutaVista);
+        Node origen = (Node) evento.getSource();
+        Stage stage = (Stage) origen.getScene().getWindow();
+        stage.setScene(new Scene(vista));
+    } catch (IOException e) {
+        e.printStackTrace();
+        mostrarAlerta("Error al cargar administrador-view.fxml: " + e.getMessage());
+    }
+}
 
     private void mostrarAlerta(String mensaje) {
         Alert alerta = new Alert(Alert.AlertType.WARNING);
