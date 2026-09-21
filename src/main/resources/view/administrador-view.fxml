@@ -21,13 +21,13 @@
                 <padding>
                     <Insets bottom="20" left="20" right="20" top="25" />
                 </padding>
-            <children>
-               <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
-                  <image>
-                     <Image url="@../imagenes/Logo-nexa.png" />
-                  </image>
-               </ImageView>
-            </children>
+                <children>
+                    <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                            <Image url="@../imagenes/Logo-nexa.png" />
+                        </image>
+                    </ImageView>
+                </children>
             </VBox>
 
             <VBox prefHeight="291.0" prefWidth="230.0" spacing="8.0" styleClass="menu-container" VBox.vgrow="ALWAYS">
@@ -35,54 +35,60 @@
                 <Button maxWidth="Infinity" styleClass="menu-button-active" text="Inicio">
                     <graphic>
                         <ImageView fitHeight="24.0" fitWidth="24.0" preserveRatio="true" styleClass="imagen-boton">
-                     <image>
-                        <Image url="@../imagenes/Inicio%20icon.png" />
-                     </image></ImageView>
+                            <image>
+                                <Image url="@../imagenes/Inicio%20icon.png" />
+                            </image>
+                        </ImageView>
                     </graphic>
                 </Button>
 
-                <Button maxWidth="Infinity" styleClass="menu-button" text="Productos">
+                <Button maxWidth="Infinity" onAction="#mostrarProducto" styleClass="menu-button" text="Productos">
                     <graphic>
                         <ImageView fitHeight="24.0" fitWidth="24.0" preserveRatio="true" styleClass="imagen-boton">
-                     <image>
-                        <Image url="@../imagenes/productos%20icon.png" />
-                     </image></ImageView>
+                            <image>
+                                <Image url="@../imagenes/productos%20icon.png" />
+                            </image>
+                        </ImageView>
                     </graphic>
                 </Button>
 
                 <Button fx:id="botonMateriaPrima" maxWidth="Infinity" onAction="#mostrarMateriaPrima" styleClass="menu-button" text="Materia Prima">
                     <graphic>
                         <ImageView fitHeight="24.0" fitWidth="24.0" preserveRatio="true" styleClass="imagen-boton">
-                     <image>
-                        <Image url="@../imagenes/materia-prima%20icon.png" />
-                     </image></ImageView>
+                            <image>
+                                <Image url="@../imagenes/materia-prima%20icon.png" />
+                            </image>
+                        </ImageView>
                     </graphic>
                 </Button>
 
                 <Button maxWidth="Infinity" styleClass="menu-button" text="Órdenes de Fabricación">
                     <graphic>
                         <ImageView fitHeight="24.0" fitWidth="24.0" preserveRatio="true" styleClass="imagen-boton">
-                     <image>
-                        <Image url="@../imagenes/Ordenes%20icon.png" />
-                     </image></ImageView>
+                            <image>
+                                <Image url="@../imagenes/Ordenes%20icon.png" />
+                            </image>
+                        </ImageView>
                     </graphic>
                 </Button>
 
                 <Button maxWidth="Infinity" styleClass="menu-button" text="Reportes">
                     <graphic>
                         <ImageView fitHeight="24.0" fitWidth="24.0" preserveRatio="true" styleClass="imagen-boton">
-                     <image>
-                        <Image url="@../imagenes/reporte%20icon.png" />
-                     </image></ImageView>
+                            <image>
+                                <Image url="@../imagenes/reporte%20icon.png" />
+                            </image>
+                        </ImageView>
                     </graphic>
                 </Button>
 
                 <Button maxWidth="Infinity" styleClass="menu-button" text="Configuración">
                     <graphic>
                         <ImageView fitHeight="24.0" fitWidth="24.0" preserveRatio="true" styleClass="imagen-boton">
-                     <image>
-                        <Image url="@../imagenes/configuracion%20icon.png" />
-                     </image></ImageView>
+                            <image>
+                                <Image url="@../imagenes/configuracion%20icon.png" />
+                            </image>
+                        </ImageView>
                     </graphic>
                 </Button>
             </VBox>
@@ -95,16 +101,16 @@
                     <StackPane prefHeight="42" prefWidth="42" styleClass="user-circle">
 
                         <Label styleClass="user-icon" />
-                  <ImageView fitHeight="32.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../imagenes/Usuario.png" />
-                     </image>
-                  </ImageView>
+
+                        <ImageView fitHeight="32.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../imagenes/Usuario.png" />
+                            </image>
+                        </ImageView>
                     </StackPane>
 
                     <VBox>
                         <Label styleClass="username" text="admin" />
-
                         <Label styleClass="user-role" text="Administrador" />
                     </VBox>
 
@@ -126,12 +132,13 @@
 
                 <Region HBox.hgrow="ALWAYS" />
 
-                <Button styleClass="boton-cerrar-sesion" text="Cerrar sesión">
+               <Button onAction="#cerrarSesion" styleClass="boton-cerrar-sesion" text="Cerrar sesión">
                     <graphic>
                         <ImageView fitHeight="22.0" fitWidth="22.0" preserveRatio="true" styleClass="imagen-cerrar-sesion">
-                     <image>
-                        <Image url="@../imagenes/Cerrar%20Sesion%20Icon.png" />
-                     </image></ImageView>
+                            <image>
+                                <Image url="@../imagenes/Cerrar%20Sesion%20Icon.png" />
+                            </image>
+                        </ImageView>
                     </graphic>
                 </Button>
 
@@ -145,20 +152,21 @@
 
                 </VBox>
 
-                 <Label styleClass="welcome-title" text="¡Bienvenido, Administrador!" />
+                <Label styleClass="welcome-title" text="¡Bienvenido, Administrador!" />
 
-                 <ImageView fitHeight="95.0" fitWidth="370.0" preserveRatio="true" styleClass="imagen-principal" />
+                <ImageView fitHeight="95.0" fitWidth="370.0" preserveRatio="true" styleClass="imagen-principal" />
 
                 <StackPane prefHeight="105.0" prefWidth="380.0" styleClass="imagen-centro" />
 
             </StackPane>
 
             <HBox spacing="18" VBox.vgrow="NEVER" />
-         <ImageView fitHeight="257.0" fitWidth="467.0" pickOnBounds="true" preserveRatio="true">
-            <image>
-               <Image url="@../imagenes/Fondo2.jpeg" />
-            </image>
-         </ImageView>
+
+            <ImageView fitHeight="257.0" fitWidth="467.0" pickOnBounds="true" preserveRatio="true">
+                <image>
+                    <Image url="@../imagenes/Fondo2.jpeg" />
+                </image>
+            </ImageView>
 
         </VBox>
 
