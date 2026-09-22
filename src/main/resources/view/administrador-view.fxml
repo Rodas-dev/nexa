@@ -62,7 +62,7 @@
                     </graphic>
                 </Button>
 
-                <Button maxWidth="Infinity" styleClass="menu-button" text="Órdenes de Fabricación">
+                <Button maxWidth="Infinity" onAction="#mostrarOrdenes" styleClass="menu-button" text="Órdenes de Fabricación">
                     <graphic>
                         <ImageView fitHeight="24.0" fitWidth="24.0" preserveRatio="true" styleClass="imagen-boton">
                             <image>

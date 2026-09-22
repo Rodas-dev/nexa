@@ -55,6 +55,22 @@ private void mostrarProducto(ActionEvent evento) {
     }
 }
 @FXML
+private void mostrarOrdenes(ActionEvent evento) {
+    URL rutaVista = getClass().getResource("/view/ordenes-produccion-view.fxml");
+
+    if (rutaVista == null) {
+        System.out.println("No se encontró /view/ordenes-produccion-view.fxml en el classpath.");
+        return;
+    }
+
+    try {
+        Parent vista = FXMLLoader.load(rutaVista);
+        raiz.setCenter(vista);
+    } catch (IOException e) {
+        e.printStackTrace();
+    }
+}
+@FXML
 private void cerrarSesion(ActionEvent evento) {
     try {
         URL rutaVista = getClass().getResource("/view/login-view.fxml");
