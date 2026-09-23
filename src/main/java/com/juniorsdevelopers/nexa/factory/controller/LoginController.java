@@ -46,13 +46,13 @@ public class LoginController {
 
     private final Service service = new Service();
 
-   @FXML
-public void initialize() {
-    comboRol.getItems().addAll(List.of("Administrador", "Supervisor", "Operario", "Almacén"));
-    campoContrasenaVisible.setVisible(false);
-    campoContrasenaVisible.setManaged(false);
-    campoContrasenaVisible.textProperty().bindBidirectional(campoContrasena.textProperty());
-}
+    @FXML
+    public void initialize() {
+        comboRol.getItems().addAll(List.of("Administrador", "Supervisor", "Operario", "Almacén"));
+        campoContrasenaVisible.setVisible(false);
+        campoContrasenaVisible.setManaged(false);
+        campoContrasenaVisible.textProperty().bindBidirectional(campoContrasena.textProperty());
+    }
    
     @FXML
     private void alternarVisibilidadContrasena(ActionEvent evento) {
@@ -64,25 +64,25 @@ public void initialize() {
     }
 
     @FXML
-private void iniciarSesion(ActionEvent evento) {
-    String rolSeleccionado = comboRol.getValue();
-    String usuario = campoUsuario.getText();
-    String contrasena = campoContrasena.getText();
+    private void iniciarSesion(ActionEvent evento) {
+        String rolSeleccionado = comboRol.getValue();
+        String usuario = campoUsuario.getText();
+        String contrasena = campoContrasena.getText();
 
-    if (rolSeleccionado == null || usuario.isBlank() || contrasena.isBlank()) {
-        mostrarAlerta("Debes completar todos los campos antes de iniciar sesión.");
-        return;
-    }
+        if (rolSeleccionado == null || usuario.isBlank() || contrasena.isBlank()) {
+            mostrarAlerta("Debes completar todos los campos antes de iniciar sesión.");
+            return;
+        }
 
-    boolean credencialesValidas = service.iniciarSesion(usuario, contrasena, rolSeleccionado);
+        boolean credencialesValidas = service.iniciarSesion(usuario, contrasena, rolSeleccionado);
 
-    if (!credencialesValidas) {
-        mostrarAlerta("Usuario, contraseña o rol incorrectos.");
-        return;
-    }
+        if (!credencialesValidas) {
+            mostrarAlerta("Usuario, contraseña o rol incorrectos.");
+            return;
+        }
 
-     navegarSegunRol(rolSeleccionado, evento);
- } 
+        navegarSegunRol(rolSeleccionado, evento);
+    } 
 
     @FXML
     private void irARegistro(ActionEvent evento) {
@@ -96,30 +96,37 @@ private void iniciarSesion(ActionEvent evento) {
             e.printStackTrace();
         }
     }
+
     private void navegarSegunRol(String rol, ActionEvent evento) {
-    String ruta = "Administrador".equals(rol) ? "/view/administrador-view.fxml" : null;
+        String ruta = null;
+        
+        if ("Administrador".equals(rol)) {
+            ruta = "/view/administrador-view.fxml";
+        } else if ("Almacén".equals(rol)) {
+            ruta = "/view/almacen-view.fxml";
+        }
 
-    if (ruta == null) {
-        mostrarAlerta("El panel para el rol " + rol + " aún no está disponible.");
-        return;
-    }
+        if (ruta == null) {
+            mostrarAlerta("El panel para el rol " + rol + " aún no está disponible.");
+            return;
+        }
 
-    URL rutaVista = getClass().getResource(ruta);
-    if (rutaVista == null) {
-        mostrarAlerta("No se encontró " + ruta + " en el classpath.");
-        return;
-    }
+        URL rutaVista = getClass().getResource(ruta);
+        if (rutaVista == null) {
+            mostrarAlerta("No se encontró " + ruta + " en el classpath.");
+            return;
+        }
 
-    try {
-        Parent vista = FXMLLoader.load(rutaVista);
-        Node origen = (Node) evento.getSource();
-        Stage stage = (Stage) origen.getScene().getWindow();
-        stage.setScene(new Scene(vista));
-    } catch (IOException e) {
-        e.printStackTrace();
-        mostrarAlerta("Error al cargar administrador-view.fxml: " + e.getMessage());
+        try {
+            Parent vista = FXMLLoader.load(rutaVista);
+            Node origen = (Node) evento.getSource();
+            Stage stage = (Stage) origen.getScene().getWindow();
+            stage.setScene(new Scene(vista));
+        } catch (IOException e) {
+            e.printStackTrace();
+            mostrarAlerta("Error al cargar " + ruta + ": " + e.getMessage());
+        }
     }
-}
 
     private void mostrarAlerta(String mensaje) {
         Alert alerta = new Alert(Alert.AlertType.WARNING);
