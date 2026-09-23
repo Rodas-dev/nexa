@@ -53,77 +53,232 @@ public class RegistroController {
 
     @FXML
     public void initialize() {
-        comboRol.getItems().addAll(List.of("Administrador", "Supervisor", "Operario", "Almacén"));
+
+        comboRol.getItems().addAll(
+                List.of(
+                        "Administrador",
+                        "Supervisor",
+                        "Operario",
+                        "Almacén"
+                )
+        );
+
         campoContrasenaVisible.setVisible(false);
         campoContrasenaVisible.setManaged(false);
-        campoContrasenaVisible.textProperty().bindBidirectional(campoContrasena.textProperty());
+
+        campoContrasenaVisible.textProperty()
+                .bindBidirectional(campoContrasena.textProperty());
     }
 
     @FXML
     private void alternarVisibilidadContrasena(ActionEvent evento) {
-        boolean mostrar = botonMostrarContrasena.isSelected();
+
+        boolean mostrar =
+                botonMostrarContrasena.isSelected();
+
         campoContrasenaVisible.setVisible(mostrar);
         campoContrasenaVisible.setManaged(mostrar);
+
         campoContrasena.setVisible(!mostrar);
         campoContrasena.setManaged(!mostrar);
     }
 
     @FXML
     private void registrar(ActionEvent evento) {
+
         String usuario = campoUsuario.getText();
         String correo = campoCorreo.getText();
         String contrasena = campoContrasena.getText();
         String rolSeleccionado = comboRol.getValue();
         String codigoRol = campoCodigoRol.getText();
 
-        String resultado = service.registrarUsuario(usuario, correo, contrasena, rolSeleccionado, codigoRol);
+        String resultado =
+                service.registrarUsuario(
+                        usuario,
+                        correo,
+                        contrasena,
+                        rolSeleccionado,
+                        codigoRol
+                );
 
         if (resultado.equals("OK")) {
-            mostrarAlerta(Alert.AlertType.INFORMATION, "Usuario registrado correctamente.");
-            navegarSegunRol(rolSeleccionado, evento);
+
+            mostrarAlerta(
+                    Alert.AlertType.INFORMATION,
+                    "Usuario registrado correctamente."
+            );
+
+            navegarSegunRol(
+                    rolSeleccionado,
+                    evento
+            );
+
         } else {
-            mostrarAlerta(Alert.AlertType.WARNING, resultado);
+
+            mostrarAlerta(
+                    Alert.AlertType.WARNING,
+                    resultado
+            );
         }
     }
 
     @FXML
     private void irAIniciarSesion(ActionEvent evento) {
+
         try {
-            URL rutaVista = getClass().getResource("/view/login-view.fxml");
-            Parent vista = FXMLLoader.load(rutaVista);
-            Node origen = (Node) evento.getSource();
-            Stage stage = (Stage) origen.getScene().getWindow();
-            stage.setScene(new Scene(vista));
+
+            URL rutaVista =
+                    getClass().getResource(
+                            "/view/login-view.fxml"
+                    );
+
+            if (rutaVista == null) {
+
+                mostrarAlerta(
+                        Alert.AlertType.WARNING,
+                        "No se encontró login-view.fxml."
+                );
+
+                return;
+            }
+
+            Parent vista =
+                    FXMLLoader.load(rutaVista);
+
+            Node origen =
+                    (Node) evento.getSource();
+
+            Stage stage =
+                    (Stage) origen.getScene().getWindow();
+
+            stage.setScene(
+                    new Scene(vista)
+            );
+
+            stage.show();
+
         } catch (IOException e) {
+
             e.printStackTrace();
+
+            mostrarAlerta(
+                    Alert.AlertType.WARNING,
+                    "No se pudo abrir la ventana de inicio de sesión."
+            );
         }
     }
 
-    private void navegarSegunRol(String rol, ActionEvent evento) {
-        String ruta = "Administrador".equals(rol) ? "/view/administrador-view.fxml" : null;
+    private void navegarSegunRol(
+            String rol,
+            ActionEvent evento) {
 
-        if (ruta == null) {
-            mostrarAlerta(Alert.AlertType.INFORMATION, "Registro exitoso. El panel para " + rol + " aún no está disponible.");
-            irAIniciarSesion(evento);
+        String ruta;
+
+        switch (rol) {
+
+            case "Administrador":
+
+                ruta =
+                        "/view/administrador-view.fxml";
+
+                break;
+
+            case "Supervisor":
+
+                ruta =
+                        "/view/supervisor-view.fxml";
+
+                break;
+
+            case "Operario":
+
+                mostrarAlerta(
+                        Alert.AlertType.INFORMATION,
+                        "Registro exitoso. El panel para Operario aún no está disponible."
+                );
+
+                irAIniciarSesion(evento);
+
+                return;
+
+            case "Almacén":
+
+                mostrarAlerta(
+                        Alert.AlertType.INFORMATION,
+                        "Registro exitoso. El panel para Almacén aún no está disponible."
+                );
+
+                irAIniciarSesion(evento);
+
+                return;
+
+            default:
+
+                mostrarAlerta(
+                        Alert.AlertType.WARNING,
+                        "Rol no reconocido."
+                );
+
+                irAIniciarSesion(evento);
+
+                return;
+        }
+
+        URL rutaVista =
+                getClass().getResource(ruta);
+
+        if (rutaVista == null) {
+
+            mostrarAlerta(
+                    Alert.AlertType.WARNING,
+                    "No se encontró la vista: " + ruta
+            );
+
             return;
         }
 
         try {
-            URL rutaVista = getClass().getResource(ruta);
-            Parent vista = FXMLLoader.load(rutaVista);
-            Node origen = (Node) evento.getSource();
-            Stage stage = (Stage) origen.getScene().getWindow();
-            stage.setScene(new Scene(vista));
+
+            Parent vista =
+                    FXMLLoader.load(rutaVista);
+
+            Node origen =
+                    (Node) evento.getSource();
+
+            Stage stage =
+                    (Stage) origen.getScene().getWindow();
+
+            stage.setScene(
+                    new Scene(vista)
+            );
+
+            stage.show();
+
         } catch (IOException e) {
+
             e.printStackTrace();
+
+            mostrarAlerta(
+                    Alert.AlertType.WARNING,
+                    "Error al cargar la vista del rol "
+                    + rol
+                    + ": "
+                    + e.getMessage()
+            );
         }
     }
 
-    private void mostrarAlerta(Alert.AlertType tipo, String mensaje) {
-        Alert alerta = new Alert(tipo);
+    private void mostrarAlerta(
+            Alert.AlertType tipo,
+            String mensaje) {
+
+        Alert alerta =
+                new Alert(tipo);
+
         alerta.setTitle("Registro");
         alerta.setHeaderText(null);
         alerta.setContentText(mensaje);
+
         alerta.showAndWait();
     }
 }

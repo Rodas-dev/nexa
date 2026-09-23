@@ -1,0 +1,340 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane fx:id="raiz" styleClass="root" stylesheets="@../css/supervisor-view.css" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.juniorsdevelopers.nexa.factory.controller.SupervisorController">
+
+    <left>
+
+        <VBox prefWidth="235.0" styleClass="sidebar">
+
+            
+
+            <VBox alignment="CENTER" prefHeight="150.0">
+
+                <ImageView fitHeight="100.0" fitWidth="180.0" preserveRatio="true">
+
+                    <image>
+                        <Image url="@../imagenes/Logo-nexa.png" />
+                    </image>
+
+                </ImageView>
+
+            </VBox>
+           
+
+            <VBox spacing="8" styleClass="menu-container" VBox.vgrow="ALWAYS">
+
+                
+
+                <Button fx:id="botonInicio" maxWidth="Infinity" onAction="#mostrarInicio" styleClass="menu-button" text="Inicio">
+
+                    <graphic>
+
+                        <ImageView fitHeight="23.0" fitWidth="23.0" preserveRatio="true">
+
+                            <image>
+                                <Image url="@../imagenes/Inicio%20icon.png" />
+                            </image>
+
+                        </ImageView>
+
+                    </graphic>
+
+                </Button>
+
+               
+
+                <Button fx:id="botonOrdenes" maxWidth="Infinity" onAction="#mostrarOrdenes" styleClass="menu-button" text="Órdenes de Producción">
+
+                    <graphic>
+
+                        <ImageView fitHeight="23.0" fitWidth="23.0" preserveRatio="true">
+
+                            <image>
+                                <Image url="@../imagenes/Ordenes%20icon.png" />
+                            </image>
+
+                        </ImageView>
+
+                    </graphic>
+
+                </Button>
+
+               
+
+                <Button fx:id="botonProcesos" maxWidth="Infinity" onAction="#mostrarProcesos" styleClass="menu-button" text="Procesos">
+
+                    <graphic>
+
+                        <ImageView fitHeight="23.0" fitWidth="23.0" preserveRatio="true">
+
+                            <image>
+                                <Image url="@../imagenes/configuracion%20icon.png" />
+                            </image>
+
+                        </ImageView>
+
+                    </graphic>
+
+                </Button>
+
+               
+
+                <Button fx:id="botonAvances" maxWidth="Infinity" onAction="#mostrarAvances" styleClass="menu-button" text="Registro de Avances">
+
+                    <graphic>
+
+                        <ImageView fitHeight="23.0" fitWidth="23.0" preserveRatio="true">
+
+                            <image>
+                                <Image url="@../imagenes/reporte%20icon.png" />
+                            </image>
+
+                        </ImageView>
+
+                    </graphic>
+
+                </Button>
+
+              
+
+                <Button fx:id="botonInventario" maxWidth="Infinity" onAction="#mostrarMateriaPrima" styleClass="menu-button" text="Materia Prima">
+
+                    <graphic>
+
+                        <ImageView fitHeight="23.0" fitWidth="23.0" preserveRatio="true">
+
+                            <image>
+                                <Image url="@../imagenes/materia-prima%20icon.png" />
+                            </image>
+
+                        </ImageView>
+
+                    </graphic>
+
+                </Button>
+
+               
+
+                <Button fx:id="botonReportes" maxWidth="Infinity" onAction="#mostrarReportes" styleClass="menu-button" text="Reportes">
+
+                    <graphic>
+
+                        <ImageView fitHeight="23.0" fitWidth="23.0" preserveRatio="true">
+
+                            <image>
+                                <Image url="@../imagenes/reporte%20icon.png" />
+                            </image>
+
+                        </ImageView>
+
+                    </graphic>
+
+                </Button>
+
+            </VBox>
+
+           
+
+            <VBox styleClass="user-box">
+
+                <Separator />
+
+                <HBox alignment="CENTER_LEFT" spacing="10">
+
+                    <StackPane prefHeight="42" prefWidth="42" styleClass="user-circle">
+
+                        <ImageView fitHeight="30" fitWidth="30" preserveRatio="true">
+
+                            <image>
+                                <Image url="@../imagenes/Usuario.png" />
+                            </image>
+
+                        </ImageView>
+
+                    </StackPane>
+
+                    <VBox>
+
+                        <Label fx:id="lblUsuario" styleClass="username" text="supervisor" />
+
+                        <Label styleClass="user-role" text="Supervisor" />
+
+                    </VBox>
+
+                </HBox>
+
+            </VBox>
+
+        </VBox>
+
+    </left>
+
+    
+
+    <center>
+
+        <VBox spacing="18" styleClass="content">
+
+            <padding>
+                <Insets bottom="25" left="30" right="30" top="25" />
+            </padding>
+
+           
+
+            <HBox alignment="CENTER_LEFT">
+
+                <VBox>
+
+                    <Label styleClass="page-title" text="Bienvenido Supervisor" />
+
+                    <Label styleClass="page-subtitle" text="Supervisión y seguimiento de la producción" />
+
+                </VBox>
+
+                <Region HBox.hgrow="ALWAYS" />
+
+                <Button onAction="#cerrarSesion" styleClass="logout-button" text="Cerrar sesión">
+
+                    <graphic>
+
+                        <ImageView fitHeight="20" fitWidth="20" preserveRatio="true">
+
+                            <image>
+                                <Image url="@../imagenes/Cerrar%20Sesion%20Icon.png" />
+                            </image>
+
+                        </ImageView>
+
+                    </graphic>
+
+                </Button>
+
+            </HBox>
+
+         
+
+            <HBox spacing="15">
+
+                <VBox styleClass="stat-card" HBox.hgrow="ALWAYS">
+
+                    <Label styleClass="stat-title" text="ÓRDENES ACTIVAS" />
+
+                    <Label fx:id="lblOrdenes" styleClass="stat-number" text="0" />
+
+                    <Label styleClass="stat-description" text="Órdenes en producción" />
+
+                </VBox>
+
+                <VBox styleClass="stat-card" HBox.hgrow="ALWAYS">
+
+                    <Label styleClass="stat-title" text="PROCESOS ACTIVOS" />
+
+                    <Label fx:id="lblProcesos" styleClass="stat-number-yellow" text="0" />
+
+                    <Label styleClass="stat-description" text="Procesos en ejecución" />
+
+                </VBox>
+
+                <VBox styleClass="stat-card" HBox.hgrow="ALWAYS">
+
+                    <Label styleClass="stat-title" text="PRODUCCIÓN HOY" />
+
+                    <Label fx:id="lblAvances" styleClass="stat-number-green" text="0" />
+
+                    <Label styleClass="stat-description" text="Unidades producidas" />
+
+                </VBox>
+
+            </HBox>
+
+         
+
+            <VBox spacing="12" styleClass="panel" VBox.vgrow="ALWAYS">
+
+                <HBox alignment="CENTER_LEFT">
+
+                    <VBox>
+
+                        <Label styleClass="panel-title" text="Órdenes de Producción" />
+
+                        <Label styleClass="panel-subtitle" text="Seguimiento de las órdenes activas" />
+
+                    </VBox>
+
+                    <Region HBox.hgrow="ALWAYS" />
+
+                    <Button onAction="#mostrarOrdenes" styleClass="primary-button" text="Ver todas" />
+
+                </HBox>
+
+                <TableView fx:id="tablaOrdenes" VBox.vgrow="ALWAYS">
+
+                    <columns>
+
+                        <TableColumn fx:id="colIdOrden" prefWidth="55" text="ID" />
+
+                        <TableColumn fx:id="colProducto" prefWidth="180" text="Producto" />
+
+                        <TableColumn fx:id="colCantidad" prefWidth="90" text="Cantidad" />
+
+                        <TableColumn fx:id="colAvance" prefWidth="90" text="Avance" />
+
+                        <TableColumn fx:id="colEstado" prefWidth="130" text="Estado" />
+
+                    </columns>
+
+                </TableView>
+
+            </VBox>
+
+         
+
+            <HBox spacing="15" VBox.vgrow="NEVER">
+
+                <VBox spacing="10" styleClass="small-panel" HBox.hgrow="ALWAYS">
+
+                    <Label styleClass="panel-title" text="Avances recientes" />
+
+                    <Label styleClass="info-line" text="Orden #001     +20 unidades" />
+
+                    <Label styleClass="info-line" text="Orden #002     +15 unidades" />
+
+                    <Label styleClass="info-line" text="Orden #003     +30 unidades" />
+
+                    <Button onAction="#mostrarAvances" styleClass="secondary-button" text="Ver avances" />
+
+                </VBox>
+
+                <VBox spacing="10" styleClass="small-panel" HBox.hgrow="ALWAYS">
+
+                    <Label styleClass="panel-title" text="Alertas de inventario" />
+
+                    <Label styleClass="alert-line" text="⚠ Materia Prima 1 - Stock bajo" />
+
+                    <Label styleClass="alert-line" text="⚠ Materia Prima 2 - Stock bajo" />
+
+                    <Button onAction="#mostrarMateriaPrima" styleClass="secondary-button" text="Ver inventario" />
+
+                </VBox>
+
+            </HBox>
+
+        </VBox>
+
+    </center>
+
+</BorderPane>

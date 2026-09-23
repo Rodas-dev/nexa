@@ -57,7 +57,8 @@ private void mostrarProducto(ActionEvent evento) {
 @FXML
 private void cerrarSesion(ActionEvent evento) {
     try {
-        URL rutaVista = getClass().getResource("/view/login-view.fxml");
+        URL rutaVista = getClass().getResource("/view/login-view.fxm"
+                + "l");
         Parent vista = FXMLLoader.load(rutaVista);
         Node origen = (Node) evento.getSource();
         Stage stage = (Stage) origen.getScene().getWindow();
