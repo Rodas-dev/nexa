@@ -28,7 +28,7 @@
                     </padding>
                     <children>
                         <HBox alignment="CENTER_LEFT" spacing="10.0">
-                            <ImageView fitHeight="36.0" fitWidth="36.0" preserveRatio="true">
+                            <ImageView fitHeight="538.0" fitWidth="330.0" preserveRatio="true">
                                 <Image url="@../imagenes/Logo-nexa.png" />
                             </ImageView>
                             <Label styleClass="marca-titulo-chico" text="Control de Producción y Ensamblaje" wrapText="true" />

@@ -25,7 +25,7 @@ public void start(Stage stagePrincipal) throws IOException {
     stagePrincipal.getIcons().add(new Image(Objects.requireNonNull(getClass().getResourceAsStream("/imagenes/Logo-nexa.png"))));
     
     stagePrincipal.setScene(escena);
-   stagePrincipal.setResizable(false); 
+   stagePrincipal.setResizable(true); 
     stagePrincipal.show();
 }
 

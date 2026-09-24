@@ -1,6 +1,5 @@
 package com.juniorsdevelopers.nexa.factory.controller;
 
-import com.juniorsdevelopers.nexa.factory.model.Rol;
 import com.juniorsdevelopers.nexa.factory.service.Service;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -53,7 +52,7 @@ public class LoginController {
         campoContrasenaVisible.setManaged(false);
         campoContrasenaVisible.textProperty().bindBidirectional(campoContrasena.textProperty());
     }
-   
+
     @FXML
     private void alternarVisibilidadContrasena(ActionEvent evento) {
         boolean mostrar = botonMostrarContrasena.isSelected();
@@ -81,50 +80,76 @@ public class LoginController {
             return;
         }
 
-        navegarSegunRol(rolSeleccionado, evento);
-    } 
+        // Se envía el nombre de usuario junto con el rol
+        navegarSegunRol(rolSeleccionado, usuario, evento);
+    }
 
     @FXML
     private void irARegistro(ActionEvent evento) {
         try {
             URL rutaVista = getClass().getResource("/view/registro-view.fxml");
+            if (rutaVista == null) {
+                mostrarAlerta("No se encontró registro-view.fxml.");
+                return;
+            }
             Parent vista = FXMLLoader.load(rutaVista);
             Node origen = (Node) evento.getSource();
             Stage stage = (Stage) origen.getScene().getWindow();
             stage.setScene(new Scene(vista));
         } catch (IOException e) {
             e.printStackTrace();
+            mostrarAlerta("No se pudo abrir la ventana de registro.");
         }
     }
 
-    private void navegarSegunRol(String rol, ActionEvent evento) {
-        String ruta = null;
-        
-        if ("Administrador".equals(rol)) {
-            ruta = "/view/administrador-view.fxml";
-        } else if ("Almacén".equals(rol)) {
-            ruta = "/view/almacen-view.fxml";
-        }
+    private void navegarSegunRol(String rol, String usuario, ActionEvent evento) {
+        String ruta;
 
-        if (ruta == null) {
-            mostrarAlerta("El panel para el rol " + rol + " aún no está disponible.");
-            return;
+        switch (rol) {
+            case "Administrador":
+                ruta = "/view/administrador-view.fxml";
+                break;
+
+            case "Supervisor":
+                ruta = "/view/supervisor-view.fxml";
+                break;
+
+            case "Almacén":
+                ruta = "/view/almacen-view.fxml";
+                break;
+
+            case "Operario":
+                mostrarAlerta("El panel para Operario aún no está disponible.");
+                return;
+
+            default:
+                mostrarAlerta("Rol no reconocido.");
+                return;
         }
 
         URL rutaVista = getClass().getResource(ruta);
         if (rutaVista == null) {
-            mostrarAlerta("No se encontró " + ruta + " en el classpath.");
+            mostrarAlerta("No se encontró la vista: " + ruta);
             return;
         }
 
         try {
-            Parent vista = FXMLLoader.load(rutaVista);
+            // Se utiliza el loader instanciado para obtener el controlador tras la carga
+            FXMLLoader loader = new FXMLLoader(rutaVista);
+            Parent vista = loader.load();
+
+            // Si entra como Administrador, se inyecta el usuario
+            if ("Administrador".equals(rol)) {
+                AdministradorController adminController = loader.getController();
+                adminController.setNombreUsuario(usuario);
+            }
+
             Node origen = (Node) evento.getSource();
             Stage stage = (Stage) origen.getScene().getWindow();
             stage.setScene(new Scene(vista));
         } catch (IOException e) {
             e.printStackTrace();
-            mostrarAlerta("Error al cargar " + ruta + ": " + e.getMessage());
+            mostrarAlerta("Error al cargar la vista del rol " + rol + ": " + e.getMessage());
         }
     }
 

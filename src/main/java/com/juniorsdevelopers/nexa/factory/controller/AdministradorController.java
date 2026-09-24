@@ -12,6 +12,7 @@ import java.util.ResourceBundle;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
 public class AdministradorController implements Initializable {
@@ -19,67 +20,94 @@ public class AdministradorController implements Initializable {
     @FXML
     private BorderPane raiz;
 
+    @FXML
+    private Label lblNombreUsuario; // Label inyectado desde el FXML
+
+    private Node vistaInicio;
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        this.vistaInicio = raiz.getCenter();
     }
-    
+
+    /**
+     * Recibe el nombre o usuario desde el LoginController y lo muestra en el Label
+     */
+    public void setNombreUsuario(String nombre) {
+        if (lblNombreUsuario != null && nombre != null && !nombre.isBlank()) {
+            this.lblNombreUsuario.setText(nombre);
+        }
+    }
+
     @FXML
-private void mostrarMateriaPrima(ActionEvent evento) {
-    URL rutaVista = getClass().getResource("/view/materia-prima-view.fxml");
-    if (rutaVista == null) {
-        System.out.println("No se encontró /view/materia-prima-view.fxml en el classpath.");
-        return;
+    private void mostrarInicio(ActionEvent evento) {
+        if (vistaInicio != null) {
+            raiz.setCenter(vistaInicio);
+        }
     }
 
-    try {
-        Parent vista = FXMLLoader.load(rutaVista);
-        raiz.setCenter(vista);
-    } catch (IOException e) {
-        e.printStackTrace();
-    }
-}
-@FXML
-private void mostrarProducto(ActionEvent evento) {
-    URL rutaVista = getClass().getResource("/view/Producto-view.fxml");
+    @FXML
+    private void mostrarMateriaPrima(ActionEvent evento) {
+        URL rutaVista = getClass().getResource("/view/materia-prima-view.fxml");
+        if (rutaVista == null) return;
 
-    if (rutaVista == null) {
-        System.out.println("No se encontró /view/Producto-view.fxml en el classpath.");
-        return;
+        try {
+            Parent vista = FXMLLoader.load(rutaVista);
+            raiz.setCenter(vista);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
-    try {
-        Parent vista = FXMLLoader.load(rutaVista);
-        raiz.setCenter(vista);
-    } catch (IOException e) {
-        e.printStackTrace();
-    }
-}
-@FXML
-private void mostrarOrdenes(ActionEvent evento) {
-    URL rutaVista = getClass().getResource("/view/ordenes-produccion-view.fxml");
+    @FXML
+    private void mostrarProducto(ActionEvent evento) {
+        URL rutaVista = getClass().getResource("/view/Producto-view.fxml");
+        if (rutaVista == null) return;
 
-    if (rutaVista == null) {
-        System.out.println("No se encontró /view/ordenes-produccion-view.fxml en el classpath.");
-        return;
+        try {
+            Parent vista = FXMLLoader.load(rutaVista);
+            raiz.setCenter(vista);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
-    try {
-        Parent vista = FXMLLoader.load(rutaVista);
-        raiz.setCenter(vista);
-    } catch (IOException e) {
-        e.printStackTrace();
+    @FXML
+    private void mostrarOrdenes(ActionEvent evento) {
+        URL rutaVista = getClass().getResource("/view/ordenes-produccion-view.fxml");
+        if (rutaVista == null) return;
+
+        try {
+            Parent vista = FXMLLoader.load(rutaVista);
+            raiz.setCenter(vista);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
-}
-@FXML
-private void cerrarSesion(ActionEvent evento) {
-    try {
-        URL rutaVista = getClass().getResource("/view/login-view.fxml");
-        Parent vista = FXMLLoader.load(rutaVista);
-        Node origen = (Node) evento.getSource();
-        Stage stage = (Stage) origen.getScene().getWindow();
-        stage.setScene(new Scene(vista));
-    } catch (IOException e) {
-        e.printStackTrace();
+
+    @FXML
+    private void mostrarReportes(ActionEvent evento) {
+        URL rutaVista = getClass().getResource("/view/reportes-view.fxml");
+        if (rutaVista == null) return;
+
+        try {
+            Parent vista = FXMLLoader.load(rutaVista);
+            raiz.setCenter(vista);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
-}
+
+    @FXML
+    private void cerrarSesion(ActionEvent evento) {
+        try {
+            URL rutaVista = getClass().getResource("/view/login-view.fxml");
+            Parent vista = FXMLLoader.load(rutaVista);
+            Node origen = (Node) evento.getSource();
+            Stage stage = (Stage) origen.getScene().getWindow();
+            stage.setScene(new Scene(vista));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }

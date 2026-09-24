@@ -249,28 +249,4 @@
 
     </center>
 
-    <bottom>
-
-        <HBox alignment="CENTER_RIGHT"
-              style="-fx-background-color: #f4f7fb;">
-
-            <padding>
-                <Insets top="5" right="35" bottom="20" left="35"/>
-            </padding>
-
-            <Button text="←  Regresar al menú"
-                    fx:id="btnRegresar"
-                    onAction="#regresarMenu"
-                    prefWidth="170"
-                    prefHeight="40"
-                    style="-fx-background-color: #0b2341;
-                           -fx-text-fill: white;
-                           -fx-font-weight: bold;
-                           -fx-background-radius: 6;
-                           -fx-cursor: hand;"/>
-
-        </HBox>
-
-    </bottom>
-
 </BorderPane>

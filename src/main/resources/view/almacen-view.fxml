@@ -30,8 +30,8 @@
             </VBox>
 
             <VBox prefHeight="291.0" prefWidth="230.0" spacing="8.0" styleClass="menu-container" VBox.vgrow="ALWAYS">
-                <!-- Botón Inicio -->
-                <Button maxWidth="Infinity" styleClass="menu-button-active" text="Inicio">
+                <!-- Botón Inicio vinculado a #mostrarInicio -->
+                <Button maxWidth="Infinity" onAction="#mostrarInicio" styleClass="menu-button-active" text="Inicio">
                     <graphic>
                         <ImageView fitHeight="24.0" fitWidth="24.0" preserveRatio="true" styleClass="imagen-boton">
                             <image>

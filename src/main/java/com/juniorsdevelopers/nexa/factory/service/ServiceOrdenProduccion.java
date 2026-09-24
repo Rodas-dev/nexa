@@ -19,6 +19,22 @@ public class ServiceOrdenProduccion {
         return repository.listar();
     }
 
+    public List<OrdenProduccion> listarActivas() {
+        return repository.listarActivas();
+    }
+
+    public int contarActivas() {
+        return repository.contarActivas();
+    }
+
+    public int contarProcesosActivos() {
+        return repository.contarProcesosActivos();
+    }
+
+    public int contarProduccionHoy() {
+        return repository.contarProduccionHoy();
+    }
+
     public String agregar(String idProductoStr, String idUsuarioStr, String cantidadStr) {
         String validacion = validarCampos(idProductoStr, idUsuarioStr, cantidadStr);
         if (validacion != null) return validacion;
@@ -27,7 +43,7 @@ public class ServiceOrdenProduccion {
         int idUsuario = Integer.parseInt(idUsuarioStr);
         int cantidad = Integer.parseInt(cantidadStr);
         Date fecha = Date.valueOf(LocalDate.now());
-        
+
         OrdenProduccion orden = new OrdenProduccion(0, idProducto, idUsuario, cantidad, fecha, "Pendiente");
 
         return repository.agregar(orden) ? "OK" : "Error de BD al crear la orden.";
@@ -36,7 +52,7 @@ public class ServiceOrdenProduccion {
     public String actualizar(int idOrden, String idProductoStr, String idUsuarioStr, String cantidadStr, String estado) {
         String validacion = validarCampos(idProductoStr, idUsuarioStr, cantidadStr);
         if (validacion != null) return validacion;
-        
+
         if (estado == null || estado.isBlank()) return "Debe seleccionar un estado.";
 
         int idProducto = Integer.parseInt(idProductoStr);

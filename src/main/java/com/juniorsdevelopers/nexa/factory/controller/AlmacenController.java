@@ -18,9 +18,18 @@ public class AlmacenController implements Initializable {
 
     @FXML
     private BorderPane raiz;
+    private Node vistaInicio;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        vistaInicio = raiz.getCenter();
+    }
+
+    @FXML
+    private void mostrarInicio(ActionEvent evento) {
+        if (vistaInicio != null) {
+            raiz.setCenter(vistaInicio);
+        }
     }
 
     @FXML
