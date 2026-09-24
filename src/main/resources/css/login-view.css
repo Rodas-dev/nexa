@@ -1,0 +1,114 @@
+.raiz {
+    -fx-background-color: #ffffff;
+}
+
+.panel-izquierdo {
+    -fx-background-color: #0b1220;
+}
+
+.capa-oscura {
+    -fx-background-color: linear-gradient(to bottom right, rgba(11,18,32,0.80), rgba(11,18,32,0.40));
+}
+
+.panel-derecho {
+    -fx-background-color: #ffffff;
+}
+
+.titulo-login {
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #0f172a;
+}
+
+.subtitulo-login {
+    -fx-font-size: 13px;
+    -fx-text-fill: #64748b;
+}
+
+.etiqueta-campo {
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #334155;
+}
+
+.campo-texto {
+    -fx-background-color: #f8fafc;
+    -fx-background-radius: 8px;
+    -fx-border-radius: 8px;
+    -fx-border-color: #cbd5e1;
+    -fx-border-width: 1px;
+    -fx-padding: 10px 14px;
+    -fx-font-size: 13px;
+    -fx-text-fill: #0f172a;
+}
+
+.campo-texto:focused {
+    -fx-border-color: #2563eb;
+    -fx-background-color: #ffffff;
+    -fx-border-width: 1.5px;
+}
+
+.campo-combo {
+    -fx-background-color: #f8fafc;
+    -fx-background-radius: 8px;
+    -fx-border-radius: 8px;
+    -fx-border-color: #cbd5e1;
+    -fx-border-width: 1px;
+    -fx-font-size: 13px;
+}
+
+.campo-combo:focused {
+    -fx-border-color: #2563eb;
+}
+
+.campo-combo .list-cell {
+    -fx-padding: 8px 14px;
+    -fx-text-fill: #334155;
+}
+
+.boton-ojo {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-padding: 0 14px 0 0;
+    -fx-font-size: 14px;
+    -fx-text-fill: #64748b;
+    -fx-cursor: hand;
+}
+
+.boton-ojo:hover {
+    -fx-text-fill: #2563eb;
+}
+
+.boton-primario {
+    -fx-background-color: #2563eb;
+    -fx-background-radius: 8px;
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-padding: 12px 0;
+    -fx-cursor: hand;
+}
+
+.boton-primario:hover {
+    -fx-background-color: #1d4ed8;
+}
+
+.texto-pie {
+    -fx-font-size: 12px;
+    -fx-text-fill: #64748b;
+}
+
+.enlace {
+    -fx-font-size: 12px;
+    -fx-text-fill: #2563eb;
+    -fx-underline: true;
+}
+
+.pie-version {
+    -fx-padding: 12px 0 0 0;
+}
+
+.texto-pie-marca, .texto-pie-version {
+    -fx-font-size: 10px;
+    -fx-text-fill: #94a3b8;
+}
