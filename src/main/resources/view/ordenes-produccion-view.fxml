@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox prefHeight="524.0" prefWidth="849.0" spacing="16.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.juniorsdevelopers.nexa.factory.controller.OrdenProduccionController">
+<VBox prefHeight="524.0" prefWidth="849.0" spacing="16.0" stylesheets="/css/orden-produccion-view.css" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.juniorsdevelopers.nexa.factory.controller.OrdenProduccionController">
 
     <padding>
         <Insets bottom="25.0" left="25.0" right="30.0" top="25.0" />

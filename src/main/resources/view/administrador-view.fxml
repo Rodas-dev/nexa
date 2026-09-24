@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane fx:id="raiz" styleClass="root" stylesheets="@../css/administrador-view.css" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.juniorsdevelopers.nexa.factory.controller.AdministradorController">
+<BorderPane fx:id="raiz" styleClass="root" stylesheets="@../css/administrador-view.css" xmlns="http://javafx.com/javafx/21.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.juniorsdevelopers.nexa.factory.controller.AdministradorController">
 
     <left>
         <VBox prefWidth="230.0" styleClass="sidebar">
@@ -155,7 +155,7 @@
 
             <HBox spacing="18" VBox.vgrow="NEVER" />
 
-            <ImageView fitHeight="257.0" fitWidth="467.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="239.0" fitWidth="493.0" pickOnBounds="true" preserveRatio="true">
                 <image>
                     <Image url="@../imagenes/Fondo2.jpeg" />
                 </image>

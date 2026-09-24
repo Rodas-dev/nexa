@@ -53,42 +53,6 @@
     -fx-font-weight: bold;
 }
 
-#btnGenerar {
-    -fx-background-color: #1976d2;
-    -fx-text-fill: white;
-    -fx-font-weight: bold;
-    -fx-background-radius: 6px;
-    -fx-cursor: hand;
-}
-
-#btnGenerar:hover {
-    -fx-background-color: #1565c0;
-}
-
-#btnExportar {
-    -fx-background-color: #607d8b;
-    -fx-text-fill: white;
-    -fx-font-weight: bold;
-    -fx-background-radius: 6px;
-    -fx-cursor: hand;
-}
-
-#btnExportar:hover {
-    -fx-background-color: #546e7a;
-}
-
-#onRegresarClick {
-    -fx-background-color: #0b2341;
-    -fx-text-fill: white;
-    -fx-font-weight: bold;
-    -fx-background-radius: 6px;
-    -fx-cursor: hand;
-}
-
-#onRegresarClick:hover {
-    -fx-background-color: #163b68;
-}
-
 .table-view .scroll-bar:vertical {
     -fx-background-color: #eef6ff;
 }
