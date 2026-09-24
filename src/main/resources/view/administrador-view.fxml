@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane fx:id="raiz" styleClass="root" stylesheets="@../css/administrador-view.css" xmlns="http://javafx.com/javafx/21.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.juniorsdevelopers.nexa.factory.controller.AdministradorController">
+<BorderPane fx:id="raiz" styleClass="root" stylesheets="@../css/administrador-view.css" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.juniorsdevelopers.nexa.factory.controller.AdministradorController">
 
     <left>
         <VBox prefWidth="230.0" styleClass="sidebar">
@@ -72,7 +72,7 @@
                     </graphic>
                 </Button>
 
-                <Button maxWidth="Infinity" styleClass="menu-button" text="Reportes">
+                <Button fx:id="btnReportes" maxWidth="Infinity" onAction="#mostrarReportes" styleClass="menu-button" text="Reportes">
                     <graphic>
                         <ImageView fitHeight="24.0" fitWidth="24.0" preserveRatio="true" styleClass="imagen-boton">
                             <image>
