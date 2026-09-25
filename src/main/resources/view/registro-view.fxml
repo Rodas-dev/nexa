@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+
+<HBox prefHeight="700.0" prefWidth="960.0" styleClass="raiz" stylesheets="@../css/login-view.css" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.juniorsdevelopers.nexa.factory.controller.RegistroController">
+
+    <StackPane prefWidth="440.0" styleClass="panel-izquierdo">
+        <ImageView fitHeight="700.0" fitWidth="440.0" preserveRatio="false">
+            <Image url="@../imagenes/fondo-factory.JPG" />
+        </ImageView>
+        <VBox styleClass="capa-oscura">
+            <children>
+                <VBox alignment="BOTTOM_LEFT" spacing="14.0" styleClass="contenido-izquierdo">
+                    <padding>
+                        <Insets bottom="40.0" left="45.0" right="45.0" top="40.0" />
+                    </padding>
+                    <children>
+                        <HBox alignment="CENTER_LEFT" spacing="10.0">
+                            <ImageView fitHeight="538.0" fitWidth="330.0" preserveRatio="true">
+                                <Image url="@../imagenes/Logo-nexa.png" />
+                            </ImageView>
+                            <Label styleClass="marca-titulo-chico" text="Control de Producción y Ensamblaje" wrapText="true" />
+                        </HBox>
+                        <Label styleClass="registro-titulo" text="Registro de Usuario" />
+                    </children>
+                </VBox>
+            </children>
+        </VBox>
+    </StackPane>
+
+    <VBox alignment="CENTER" prefWidth="520.0" spacing="14.0" styleClass="panel-derecho">
+        <padding>
+            <Insets bottom="30.0" left="70.0" right="70.0" top="30.0" />
+        </padding>
+
+        <VBox spacing="6.0">
+            <Label styleClass="etiqueta-campo" text="Usuario" />
+            <TextField fx:id="campoUsuario" promptText="Ingresa tu nombre de usuario" styleClass="campo-texto" />
+        </VBox>
+
+        <VBox spacing="6.0">
+            <Label styleClass="etiqueta-campo" text="Correo" />
+            <TextField fx:id="campoCorreo" promptText="Ingresa tu correo" styleClass="campo-texto" />
+        </VBox>
+
+        <VBox spacing="6.0">
+            <Label styleClass="etiqueta-campo" text="Contraseña" />
+            <StackPane>
+                <PasswordField fx:id="campoContrasena" promptText="Ingresa tu contraseña" styleClass="campo-texto" />
+                <TextField fx:id="campoContrasenaVisible" promptText="Ingresa tu contraseña" styleClass="campo-texto" />
+                <HBox alignment="CENTER_RIGHT" pickOnBounds="false">
+                    <ToggleButton fx:id="botonMostrarContrasena" onAction="#alternarVisibilidadContrasena" styleClass="boton-ojo" text="👁" />
+                </HBox>
+            </StackPane>
+        </VBox>
+
+        <VBox spacing="6.0">
+            <Label styleClass="etiqueta-campo" text="Rol" />
+            <ComboBox fx:id="comboRol" maxWidth="Infinity" promptText="Selecciona un rol" styleClass="campo-combo" />
+        </VBox>
+
+        <VBox spacing="6.0">
+            <Label styleClass="etiqueta-campo" text="Código del Rol" />
+            <TextField fx:id="campoCodigoRol" promptText="Ingresa el código del rol" styleClass="campo-texto" />
+        </VBox>
+
+        <Button fx:id="botonRegistrar" maxWidth="Infinity" onAction="#registrar" styleClass="boton-primario" text="Registrar" />
+
+        <HBox alignment="CENTER" spacing="4.0">
+            <Label styleClass="texto-pie" text="¿Ya tienes una cuenta?" />
+            <Hyperlink fx:id="enlaceIniciarSesion" onAction="#irAIniciarSesion" styleClass="enlace" text="Inicia sesión" />
+        </HBox>
+    </VBox>
+
+</HBox>
