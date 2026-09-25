@@ -9,67 +9,45 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane xmlns="http://javafx.com/javafx/21"
-            xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="com.juniorsdevelopers.nexa.factory.controller.ProcesosSupervisorController"
-            style="-fx-background-color: #F4F7FB;">
+<BorderPane style="-fx-background-color: #F4F7FB;" xmlns="http://javafx.com/javafx/21.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.juniorsdevelopers.nexa.factory.controller.ProcesosSupervisorController">
 
     <top>
         <VBox spacing="5">
             <padding>
-                <Insets top="25" right="30" bottom="15" left="30"/>
+                <Insets bottom="15" left="30" right="30" top="25" />
             </padding>
 
-            <Label text="Procesos de Producción"
-                   style="-fx-text-fill: #102A43; -fx-font-size: 25px; -fx-font-weight: bold;"/>
+            <Label style="-fx-text-fill: #102A43; -fx-font-size: 25px; -fx-font-weight: bold;" text="Procesos de Producción" />
 
-            <Label text="Consulta y seguimiento de los procesos de las órdenes de producción"
-                   style="-fx-text-fill: #718096; -fx-font-size: 13px;"/>
+            <Label style="-fx-text-fill: #718096; -fx-font-size: 13px;" text="Consulta y seguimiento de los procesos de las órdenes de producción" />
         </VBox>
     </top>
 
     <center>
         <VBox spacing="15">
             <padding>
-                <Insets top="10" right="30" bottom="30" left="30"/>
+                <Insets bottom="30" left="30" right="30" top="10" />
             </padding>
 
             <HBox spacing="10">
 
-                <Button text="Todos los procesos"
-                        onAction="#cargarTodos"
-                        style="-fx-background-color: #0B82E6; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 6; -fx-padding: 8 14;"/>
-
-                <Button text="Procesos activos"
-                        onAction="#cargarActivos"
-                        style="-fx-background-color: #E8F1FA; -fx-text-fill: #0B6FC4; -fx-font-weight: bold; -fx-background-radius: 6; -fx-padding: 8 14;"/>
+                <Button onAction="#cargarTodos" style="-fx-background-color: #0B82E6; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 6; -fx-padding: 8 14;" text="Todos los procesos" />
 
             </HBox>
 
-            <TableView fx:id="tablaProcesos"
-                       VBox.vgrow="ALWAYS">
+            <TableView fx:id="tablaProcesos" VBox.vgrow="ALWAYS">
 
                 <columns>
 
-                    <TableColumn fx:id="colIdProceso"
-                                 text="ID"
-                                 prefWidth="70"/>
+                    <TableColumn fx:id="colIdProceso" prefWidth="70" text="ID" />
 
-                    <TableColumn fx:id="colIdOrden"
-                                 text="Orden"
-                                 prefWidth="80"/>
+                    <TableColumn fx:id="colIdOrden" prefWidth="80" text="Orden" />
 
-                    <TableColumn fx:id="colNombreProceso"
-                                 text="Proceso"
-                                 prefWidth="220"/>
+                    <TableColumn fx:id="colNombreProceso" prefWidth="220" text="Proceso" />
 
-                    <TableColumn fx:id="colEstadoProceso"
-                                 text="Estado"
-                                 prefWidth="160"/>
+                    <TableColumn fx:id="colEstadoProceso" prefWidth="160" text="Estado" />
 
-                    <TableColumn fx:id="colSecuencia"
-                                 text="Secuencia"
-                                 prefWidth="100"/>
+                    <TableColumn fx:id="colSecuencia" prefWidth="100" text="Secuencia" />
 
                 </columns>
 
@@ -79,9 +57,7 @@
 
             </TableView>
 
-            <Label fx:id="lblTotalProcesos"
-                   text="Procesos encontrados: 0"
-                   style="-fx-text-fill: #64748B; -fx-font-size: 12px;"/>
+            <Label fx:id="lblTotalProcesos" style="-fx-text-fill: #64748B; -fx-font-size: 12px;" text="Procesos encontrados: 0" />
 
         </VBox>
     </center>

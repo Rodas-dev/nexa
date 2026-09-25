@@ -9,29 +9,18 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane xmlns="http://javafx.com/javafx/21"
-            xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="com.juniorsdevelopers.nexa.factory.controller.OrdenesSupervisorController"
-            style="-fx-background-color: #F4F7FB;">
+<BorderPane style="-fx-background-color: #F4F7FB;" xmlns="http://javafx.com/javafx/21.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.juniorsdevelopers.nexa.factory.controller.OrdenesSupervisorController">
 
     <top>
         <VBox spacing="5">
 
             <padding>
-                <Insets top="25"
-                        right="30"
-                        bottom="15"
-                        left="30"/>
+                <Insets bottom="15" left="30" right="30" top="25" />
             </padding>
 
-            <Label text="Órdenes de Producción"
-                   style="-fx-text-fill: #102A43;
-                          -fx-font-size: 25px;
-                          -fx-font-weight: bold;"/>
+            <Label style="-fx-text-fill: #102A43;                           -fx-font-size: 25px;                           -fx-font-weight: bold;" text="Órdenes de Producción" />
 
-            <Label text="Consulta y seguimiento de las órdenes de producción"
-                   style="-fx-text-fill: #718096;
-                          -fx-font-size: 13px;"/>
+            <Label style="-fx-text-fill: #718096;                           -fx-font-size: 13px;" text="Consulta y seguimiento de las órdenes de producción" />
 
         </VBox>
     </top>
@@ -40,60 +29,30 @@
         <VBox spacing="15">
 
             <padding>
-                <Insets top="10"
-                        right="30"
-                        bottom="30"
-                        left="30"/>
+                <Insets bottom="30" left="30" right="30" top="10" />
             </padding>
 
             <HBox spacing="10">
 
-                <Button text="Todas las órdenes"
-                        onAction="#cargarTodas"
-                        style="-fx-background-color: #0B82E6;
-                               -fx-text-fill: white;
-                               -fx-font-weight: bold;
-                               -fx-background-radius: 6;
-                               -fx-padding: 8 14;"/>
-
-                <Button text="Órdenes activas"
-                        onAction="#cargarActivas"
-                        style="-fx-background-color: #E8F1FA;
-                               -fx-text-fill: #0B6FC4;
-                               -fx-font-weight: bold;
-                               -fx-background-radius: 6;
-                               -fx-padding: 8 14;"/>
+                <Button onAction="#cargarTodas" style="-fx-background-color: #0B82E6;                                -fx-text-fill: white;                                -fx-font-weight: bold;                                -fx-background-radius: 6;                                -fx-padding: 8 14;" text="Todas las órdenes" />
 
             </HBox>
 
-            <TableView fx:id="tablaOrdenes"
-                       VBox.vgrow="ALWAYS">
+            <TableView fx:id="tablaOrdenes" VBox.vgrow="ALWAYS">
 
                 <columns>
 
-                    <TableColumn fx:id="colIdOrden"
-                                 text="ID"
-                                 prefWidth="70"/>
+                    <TableColumn fx:id="colIdOrden" prefWidth="70" text="ID" />
 
-                    <TableColumn fx:id="colProducto"
-                                 text="Producto"
-                                 prefWidth="220"/>
+                    <TableColumn fx:id="colProducto" prefWidth="220" text="Producto" />
 
-                    <TableColumn fx:id="colCantidad"
-                                 text="Cantidad"
-                                 prefWidth="120"/>
+                    <TableColumn fx:id="colCantidad" prefWidth="120" text="Cantidad" />
 
-                    <TableColumn fx:id="colAvance"
-                                 text="Avance"
-                                 prefWidth="120"/>
+                    <TableColumn fx:id="colAvance" prefWidth="120" text="Avance" />
 
-                    <TableColumn fx:id="colEstado"
-                                 text="Estado"
-                                 prefWidth="160"/>
+                    <TableColumn fx:id="colEstado" prefWidth="160" text="Estado" />
 
-                    <TableColumn fx:id="colFecha"
-                                 text="Fecha"
-                                 prefWidth="140"/>
+                    <TableColumn fx:id="colFecha" prefWidth="140" text="Fecha" />
 
                 </columns>
 
@@ -103,10 +62,7 @@
 
             </TableView>
 
-            <Label fx:id="lblTotalOrdenes"
-                   text="Órdenes encontradas: 0"
-                   style="-fx-text-fill: #64748B;
-                          -fx-font-size: 12px;"/>
+            <Label fx:id="lblTotalOrdenes" style="-fx-text-fill: #64748B;                           -fx-font-size: 12px;" text="Órdenes encontradas: 0" />
 
         </VBox>
     </center>

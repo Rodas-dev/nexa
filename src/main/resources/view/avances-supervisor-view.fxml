@@ -7,33 +7,24 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane xmlns="http://javafx.com/javafx/21"
-            xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="com.juniorsdevelopers.nexa.factory.controller.AvancesSupervisorController"
-            style="-fx-background-color: #F4F7FB;">
+<BorderPane style="-fx-background-color: #F4F7FB;" xmlns="http://javafx.com/javafx/21.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.juniorsdevelopers.nexa.factory.controller.AvancesSupervisorController">
 
     <top>
         <VBox spacing="5">
 
             <padding>
-                <Insets top="25"
-                        right="30"
-                        bottom="15"
-                        left="30"/>
+                <Insets bottom="15" left="30" right="30" top="25" />
             </padding>
 
-            <Label text="Registro de Avances"
-                   style="-fx-text-fill: #102A43;
-                          -fx-font-size: 25px;
-                          -fx-font-weight: bold;"/>
+            <Label style="-fx-text-fill: #102A43;                           -fx-font-size: 25px;                           -fx-font-weight: bold;" text="Registro de Avances" />
 
-            <Label text="Consulta y registro de la producción realizada"
-                   style="-fx-text-fill: #718096;
-                          -fx-font-size: 13px;"/>
+            <Label style="-fx-text-fill: #718096;                           -fx-font-size: 13px;" text="Consulta y registro de la producción realizada" />
 
         </VBox>
     </top>
@@ -42,79 +33,44 @@
         <VBox spacing="15">
 
             <padding>
-                <Insets top="10"
-                        right="30"
-                        bottom="30"
-                        left="30"/>
+                <Insets bottom="30" left="30" right="30" top="10" />
             </padding>
 
            
 
-            <VBox spacing="10"
-                  style="-fx-background-color: white;
-                         -fx-background-radius: 10;
-                         -fx-padding: 18;">
+            <VBox spacing="10" style="-fx-background-color: white;                          -fx-background-radius: 10;                          -fx-padding: 18;">
 
-                <Label text="Registrar nuevo avance"
-                       style="-fx-text-fill: #172033;
-                              -fx-font-size: 16px;
-                              -fx-font-weight: bold;"/>
+                <Label style="-fx-text-fill: #172033;                               -fx-font-size: 16px;                               -fx-font-weight: bold;" text="Registrar nuevo avance" />
 
-                <GridPane hgap="15"
-                          vgap="10">
+                <GridPane hgap="15" vgap="10">
 
-                    <Label text="ID de orden:"
-                           GridPane.columnIndex="0"
-                           GridPane.rowIndex="0"
-                           style="-fx-text-fill: #475569;
-                                  -fx-font-size: 12px;"/>
+                    <Label style="-fx-text-fill: #475569;                                   -fx-font-size: 12px;" text="ID de orden:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
 
-                    <TextField fx:id="txtIdOrden"
-                               promptText="Ej. 1"
-                               GridPane.columnIndex="1"
-                               GridPane.rowIndex="0"
-                               prefWidth="150"/>
+                    <TextField fx:id="txtIdOrden" prefWidth="150" promptText="Ej. 1" GridPane.columnIndex="1" GridPane.rowIndex="0" />
 
-                    <Label text="ID de usuario:"
-                           GridPane.columnIndex="2"
-                           GridPane.rowIndex="0"
-                           style="-fx-text-fill: #475569;
-                                  -fx-font-size: 12px;"/>
+                    <Label style="-fx-text-fill: #475569;                                   -fx-font-size: 12px;" text="ID de usuario:" GridPane.columnIndex="2" GridPane.rowIndex="0" />
 
-                    <TextField fx:id="txtIdUsuario"
-                               promptText="Ej. 2"
-                               GridPane.columnIndex="3"
-                               GridPane.rowIndex="0"
-                               prefWidth="150"/>
+                    <TextField fx:id="txtIdUsuario" prefWidth="150" promptText="Ej. 2" GridPane.columnIndex="3" GridPane.rowIndex="0" />
 
-                    <Label text="Cantidad:"
-                           GridPane.columnIndex="0"
-                           GridPane.rowIndex="1"
-                           style="-fx-text-fill: #475569;
-                                  -fx-font-size: 12px;"/>
+                    <Label style="-fx-text-fill: #475569;                                   -fx-font-size: 12px;" text="Cantidad:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
 
-                    <TextField fx:id="txtCantidad"
-                               promptText="Cantidad producida"
-                               GridPane.columnIndex="1"
-                               GridPane.rowIndex="1"
-                               prefWidth="150"/>
+                    <TextField fx:id="txtCantidad" prefWidth="150" promptText="Cantidad producida" GridPane.columnIndex="1" GridPane.rowIndex="1" />
 
-                    <Button text="Registrar avance"
-                            onAction="#registrarAvance"
-                            GridPane.columnIndex="3"
-                            GridPane.rowIndex="1"
-                            style="-fx-background-color: #0B82E6;
-                                   -fx-text-fill: white;
-                                   -fx-font-weight: bold;
-                                   -fx-background-radius: 6;
-                                   -fx-padding: 8 14;"/>
+                    <Button onAction="#registrarAvance" style="-fx-background-color: #0B82E6;                                    -fx-text-fill: white;                                    -fx-font-weight: bold;                                    -fx-background-radius: 6;                                    -fx-padding: 8 14;" text="Registrar avance" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+               <columnConstraints>
+                  <ColumnConstraints />
+                  <ColumnConstraints />
+                  <ColumnConstraints />
+                  <ColumnConstraints />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints />
+                  <RowConstraints />
+               </rowConstraints>
 
                 </GridPane>
 
-                <Label fx:id="lblMensaje"
-                       text=""
-                       style="-fx-font-size: 12px;
-                              -fx-font-weight: bold;"/>
+                <Label fx:id="lblMensaje" style="-fx-font-size: 12px;                               -fx-font-weight: bold;" text="" />
 
             </VBox>
 
@@ -122,59 +78,31 @@
 
             <HBox spacing="10">
 
-                <Button text="Todos los avances"
-                        onAction="#cargarTodos"
-                        style="-fx-background-color: #0B82E6;
-                               -fx-text-fill: white;
-                               -fx-font-weight: bold;
-                               -fx-background-radius: 6;
-                               -fx-padding: 8 14;"/>
-
-                <Button text="Producción de hoy"
-                        onAction="#cargarHoy"
-                        style="-fx-background-color: #E8F1FA;
-                               -fx-text-fill: #0B6FC4;
-                               -fx-font-weight: bold;
-                               -fx-background-radius: 6;
-                               -fx-padding: 8 14;"/>
+                <Button onAction="#cargarTodos" style="-fx-background-color: #0B82E6;                                -fx-text-fill: white;                                -fx-font-weight: bold;                                -fx-background-radius: 6;                                -fx-padding: 8 14;" text="Todos los avances" />
 
             </HBox>
 
          
 
-            <TableView fx:id="tablaAvances"
-                       VBox.vgrow="ALWAYS">
+            <TableView fx:id="tablaAvances" VBox.vgrow="ALWAYS">
 
                 <columns>
 
-                    <TableColumn fx:id="colIdAvance"
-                                 text="ID"
-                                 prefWidth="70"/>
+                    <TableColumn fx:id="colIdAvance" prefWidth="70" text="ID" />
 
-                    <TableColumn fx:id="colIdOrden"
-                                 text="Orden"
-                                 prefWidth="80"/>
+                    <TableColumn fx:id="colIdOrden" prefWidth="80" text="Orden" />
 
-                    <TableColumn fx:id="colUsuario"
-                                 text="Usuario"
-                                 prefWidth="180"/>
+                    <TableColumn fx:id="colUsuario" prefWidth="180" text="Usuario" />
 
-                    <TableColumn fx:id="colCantidad"
-                                 text="Cantidad producida"
-                                 prefWidth="160"/>
+                    <TableColumn fx:id="colCantidad" prefWidth="160" text="Cantidad producida" />
 
-                    <TableColumn fx:id="colFecha"
-                                 text="Fecha"
-                                 prefWidth="140"/>
+                    <TableColumn fx:id="colFecha" prefWidth="140" text="Fecha" />
 
                 </columns>
 
             </TableView>
 
-            <Label fx:id="lblTotalAvances"
-                   text="Avances encontrados: 0"
-                   style="-fx-text-fill: #64748B;
-                          -fx-font-size: 12px;"/>
+            <Label fx:id="lblTotalAvances" style="-fx-text-fill: #64748B;                           -fx-font-size: 12px;" text="Avances encontrados: 0" />
 
         </VBox>
     </center>
