@@ -57,7 +57,6 @@ public class RegistroController {
                 List.of(
                         "Administrador",
                         "Supervisor",
-                        "Operario",
                         "Almacén"
                 )
         );

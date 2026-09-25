@@ -15,8 +15,7 @@ public class Service {
   private static final Map<String, String> CODIGOS_ROL = Map.of(
     "Administrador", "2026A",
     "Supervisor", "2026B",
-    "Operario", "2026C",
-    "Almacén", "2026D"
+    "Almacén", "2026C"
  );
 
     public Service() {

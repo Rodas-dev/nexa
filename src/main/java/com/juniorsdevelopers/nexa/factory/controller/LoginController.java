@@ -47,7 +47,7 @@ public class LoginController {
 
     @FXML
     public void initialize() {
-        comboRol.getItems().addAll(List.of("Administrador", "Supervisor", "Operario", "Almacén"));
+        comboRol.getItems().addAll(List.of("Administrador", "Supervisor", "Almacén"));
         campoContrasenaVisible.setVisible(false);
         campoContrasenaVisible.setManaged(false);
         campoContrasenaVisible.textProperty().bindBidirectional(campoContrasena.textProperty());
@@ -117,10 +117,6 @@ public class LoginController {
             case "Almacén":
                 ruta = "/view/almacen-view.fxml";
                 break;
-
-            case "Operario":
-                mostrarAlerta("El panel para Operario aún no está disponible.");
-                return;
 
             default:
                 mostrarAlerta("Rol no reconocido.");
